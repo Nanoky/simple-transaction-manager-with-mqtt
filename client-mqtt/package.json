@@ -1,0 +1,18 @@
+{
+  "name": "client-mqtt",
+  "version": "1.0.0",
+  "description": "This is a MQTT client for an IoT project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nanok",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "compression": "^1.7.4",
+    "debug": "^2.6.9",
+    "express": "^4.17.1",
+    "mqtt": "^4.2.8"
+  }
+}

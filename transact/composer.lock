@@ -1,0 +1,116 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0db1591bbfbff8ccb86643d922ccea66",
+    "packages": [
+        {
+            "name": "bakangoa/ngbin-framework",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bakangoa/ngbin-framework.git",
+                "reference": "c2533fc346c4f0c5f3c5ca30e5edf244d71aaa24"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bakangoa/ngbin-framework/zipball/c2533fc346c4f0c5f3c5ca30e5edf244d71aaa24",
+                "reference": "c2533fc346c4f0c5f3c5ca30e5edf244d71aaa24",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ngbin\\Framework\\Core\\Enum\\": "src/core/enum",
+                    "Ngbin\\Framework\\Core\\": "src/core",
+                    "Ngbin\\Framework\\Entity\\": "src/entities",
+                    "Ngbin\\Framework\\Worker\\": "src/workers",
+                    "Ngbin\\Framework\\Formatter\\": "src/formatter"
+                },
+                "files": [
+                    "src/Pipeline.php",
+                    "src/App.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bakangoa Engineeering",
+                    "email": "bakangoa@gmail.com"
+                }
+            ],
+            "description": "Ngbin framework is a pretty simple PHP micro framework developed by our engineers to introduce a new way to handle and process http request",
+            "support": {
+                "issues": "https://github.com/bakangoa/ngbin-framework/issues",
+                "source": "https://github.com/bakangoa/ngbin-framework/tree/main"
+            },
+            "time": "2021-05-06T07:08:05+00:00"
+        },
+        {
+            "name": "nanok/simple-http-request",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Nanoky/request.git",
+                "reference": "aed70ce675eab17dc435b60f05a3ce19e58865b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Nanoky/request/zipball/aed70ce675eab17dc435b60f05a3ce19e58865b5",
+                "reference": "aed70ce675eab17dc435b60f05a3ce19e58865b5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5 || ^7.0 || ^8.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konan Yao Charles",
+                    "email": "konancharlesyao@gmail.com",
+                    "homepage": "https://bakangoa.herokuapp.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A PHP lib to make simple http request that use curl",
+            "homepage": "https://github.com/Nanoky/request",
+            "keywords": [
+                "curl",
+                "http",
+                "lib",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/Nanoky/request/issues",
+                "source": "https://github.com/Nanoky/request/tree/main"
+            },
+            "time": "2021-05-05T01:31:56+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "bakangoa/ngbin-framework": 20,
+        "nanok/simple-http-request": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

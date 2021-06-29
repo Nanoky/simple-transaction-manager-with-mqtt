@@ -1,0 +1,15 @@
+{
+    "name": "nanok/account",
+    "type": "service",
+    "authors": [
+        {
+            "name": "Nanok Charles",
+            "email": "konancharlesyao@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "bakangoa/ngbin-framework": "dev-main",
+        "nanok/simple-http-request": "dev-main"
+    }
+}
