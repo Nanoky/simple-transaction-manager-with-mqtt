@@ -109,7 +109,7 @@ use Ngbin\Framework\App;
                 
                 $value = $value->code;
 
-                $count = $db->select("SELECT COUNT(code) as count, MAX(date) as date FROM transact WHERE code=:code", [
+                $count = $db->select("SELECT COUNT(code) as count, date FROM transact WHERE code=:code ORDER BY date DESC LIMIT 1", [
                     'code' => $value->code
                 ]);
 
