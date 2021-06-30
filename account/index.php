@@ -25,10 +25,12 @@
     });
 
     $app->post("/", function (Request $request) {
+        return new Response([], new ToJSON());
+    });
 
-        $response = BaseRequest::post(db_url, [
+    $app->get("/card/:id", function (Request $request) {
 
-        ]);
+        $response = BaseRequest::get(db_url . "/" . $request->params["id"]);
         return new Response($response, new ToJSON());
     });
 

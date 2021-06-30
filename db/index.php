@@ -1,6 +1,7 @@
 <?php
 
-    use Ngbin\Framework\App;
+use Models\DB;
+use Ngbin\Framework\App;
     use Ngbin\Framework\Entity\Request;
     use Ngbin\Framework\Entity\Response;
     use Ngbin\Framework\Formatter\ToJSON;
@@ -54,6 +55,65 @@
         try {
             $model = new Transact($request->params["id"], 0);
             $response["data"] = $model->all();
+            $response["success"] = true;
+        } catch (\Exception $th) {
+            $response["message"] = $th->getMessage();
+        }
+
+        return new Response($response, new ToJSON());
+
+    });
+
+    $app->post("/account/:id", function (Request $request) {
+
+        $response = [
+            "success" => false,
+            "message" => "",
+            "data" => []
+        ];
+
+        try {
+            $model = new Account();
+            $response["data"] = $model->findById([
+                "code" => $request->params["id"]
+            ]);
+            $response["success"] = true;
+        } catch (\Exception $th) {
+            $response["message"] = $th->getMessage();
+        }
+
+        return new Response($response, new ToJSON());
+
+    });
+
+    $app->get("/", function (Request $request) {
+
+        global $config;
+
+        $response = [
+            "success" => false,
+            "message" => "",
+            "data" => []
+        ];
+
+        try {
+            $model = new Account();
+            $accounts = $model->all();
+
+            $db = new DB($config);
+
+            foreach ($accounts as $key => $value) {
+                
+                $count = $db->select("SELECT COUNT(data) FROM transact WHERE code=:code", [
+                    'code' => $value->code
+                ]);
+
+                $response["data"][] = [
+                    "matricule" => $value->matricule,
+                    "nomprenoms" => $value->nom . " " . $value->prenoms
+                ];
+            }
+            
             $response["success"] = true;
         } catch (\Exception $th) {
             $response["message"] = $th->getMessage();
