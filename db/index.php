@@ -117,8 +117,8 @@ use Ngbin\Framework\App;
                 error_log(json_encode($count));
 
                 $response["data"][] = [
-                    "matricule" => $value->matricule,
-                    "nom" => $value->name . " " . $value->firstname,
+                    "matricule" => $value["matricule"],
+                    "nom" => $value["name"] . " " . $value["firstname"],
                     "date" => date("d m Y", strtotime($count["date"])),
                     "heure" => date("H:i", strtotime($count["date"])),
                     "nb" => $count["count"] 
