@@ -105,13 +105,16 @@ use Ngbin\Framework\App;
 
             foreach ($accounts as $key => $value) {
                 
-                $count = $db->select("SELECT COUNT(data) FROM transact WHERE code=:code", [
+                $count = $db->select("SELECT COUNT(date) as count, MAX(date) as date FROM transact WHERE code=:code", [
                     'code' => $value->code
                 ]);
 
                 $response["data"][] = [
                     "matricule" => $value->matricule,
-                    "nomprenoms" => $value->nom . " " . $value->prenoms
+                    "nom" => $value->nom . " " . $value->prenoms,
+                    "date" => date("d m Y", strtotime($count["date"])),
+                    "heure" => date("H:i", strtotime($count["date"])),
+                    "nb" => $count["count"] 
                 ];
             }
             
