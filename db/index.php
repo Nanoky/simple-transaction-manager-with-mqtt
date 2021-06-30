@@ -107,6 +107,8 @@ use Ngbin\Framework\App;
 
             foreach ($accounts as $key => $value) {
                 
+                $value = $value->code;
+
                 $count = $db->select("SELECT COUNT(code) as count, MAX(date) as date FROM transact WHERE code=:code", [
                     'code' => $value->code
                 ]);
