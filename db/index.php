@@ -105,10 +105,11 @@ use Ngbin\Framework\App;
 
             foreach ($accounts as $key => $value) {
                 
-                $count = $db->select("SELECT COUNT(date) as count, MAX(date) as date FROM transact WHERE code=:code", [
+                $count = $db->select("SELECT COUNT(code) as count, MAX(date) as date FROM transact WHERE code=:code", [
                     'code' => $value->code
                 ]);
 
+                $count = $count[0];
                 error_log(json_encode($count));
 
                 $response["data"][] = [
@@ -125,10 +126,25 @@ use Ngbin\Framework\App;
             $response["message"] = $th->getMessage();
         }
 
-        return new Response($response, new ToJSON());
+        $r = new Response($response, new ToJSON());
+
+        $r = addHeaders($r);
+
+        return $r;
 
     });
 
     $app->run();
+
+    function addHeaders($response)
+    {
+        $response->setHeader("Access-Control-Allow-Origin", "*");
+        $response->setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+        $response->setHeader("Content-Type: application/json", "charset=UTF-8");
+        $response->setHeader("Access-Control-Max-Age", "3600");
+        $response->setHeader("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
+        return $response;
+    }
 
 ?>
