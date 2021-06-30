@@ -101,6 +101,8 @@ use Ngbin\Framework\App;
             $model = new Account();
             $accounts = $model->all();
 
+            error_log(json_encode($accounts));
+
             $db = new DB($config);
 
             foreach ($accounts as $key => $value) {
