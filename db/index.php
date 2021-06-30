@@ -12,6 +12,7 @@ use Ngbin\Framework\App;
     include_once "database/ModelInterface.php";
     include_once "database/Model.php";
     include_once "models/transact.php";
+    include_once "models/account.php";
 
     $config = [
         "sgbd" => "sqlite",
