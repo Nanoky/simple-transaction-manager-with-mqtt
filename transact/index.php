@@ -20,7 +20,7 @@
 
         $response = BaseRequest::get(account_url . "/card/" . $request->body["code"]);
 
-        if ($response["success"] && !empty($response["data"]))
+        if ($response->success && !empty($response->data))
         {
             $response = BaseRequest::post(db_url, [
                 "code" => $request->body["code"],
@@ -29,7 +29,7 @@
         }
         else
         {
-            $response["success"] = false;
+            $response->success = false;
         }
 
         return new Response($response, new ToJSON());
