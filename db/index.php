@@ -64,7 +64,7 @@ use Ngbin\Framework\App;
 
     });
 
-    $app->post("/account/:id", function (Request $request) {
+    $app->get("/account/:id", function (Request $request) {
 
         $response = [
             "success" => false,
